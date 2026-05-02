@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping Render backend
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.RENDER_URL }}/health)
+          response=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.RENDER_URL }}/ping)
           echo "Response code: $response"
           if [ "$response" == "200" ]; then
             echo "✅ Server is alive!"
